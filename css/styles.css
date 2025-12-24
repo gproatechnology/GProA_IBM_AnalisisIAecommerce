@@ -49,6 +49,22 @@ body {
   margin: 0 auto;
 }
 
+.cta-button {
+  background: var(--primary-blue);
+  color: var(--primary-white);
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: var(--accent);
+}
+
 /* Secciones generales */
 .section {
   padding: 80px 20px;
@@ -256,6 +272,20 @@ body {
   }
 }
 
+/* Dashboard Styles */
+.metric-display {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-blue);
+  text-align: center;
+  padding: 20px;
+  background: var(--primary-white);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow);
+  margin: 20px auto;
+  max-width: 300px;
+}
+
 @media (max-width: 480px) {
   .hero {
     padding: 60px 20px;
@@ -268,5 +298,9 @@ body {
   .diagrama-box {
     padding: 15px 20px;
     font-size: 1rem;
+  }
+
+  .metric-display {
+    font-size: 1.5rem;
   }
 }

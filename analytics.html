@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Analytics | GProA Technology</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="hero" style="min-height: 30vh;">
+    <div class="hero-content">
+      <h1>Dashboard de Analytics</h1>
+      <p>Métricas de uso del sitio web en tiempo real</p>
+      <button onclick="window.GProAAnalytics.resetMetrics()" class="cta-button">Resetear Métricas</button>
+      <button onclick="window.GProAAnalytics.exportMetrics()" class="cta-button" style="margin-left: 10px;">Exportar Datos</button>
+    </div>
+  </header>
+
+  <!-- Sección: Visitas por Sección -->
+  <section class="section">
+    <div class="container">
+      <h2>Visitas por Sección</h2>
+      <p>Gráfico de barras mostrando cuántas veces se ha visto cada sección del sitio.</p>
+      <canvas id="sectionViewsChart" width="400" height="200"></canvas>
+    </div>
+  </section>
+
+  <!-- Sección: Clics en CTAs -->
+  <section class="section solucion-bg">
+    <div class="container">
+      <h2>Clics en Call-to-Actions</h2>
+      <p>Gráfico de pastel mostrando la distribución de clics en botones clave.</p>
+      <canvas id="clicksChart" width="400" height="200"></canvas>
+    </div>
+  </section>
+
+  <!-- Sección: Tiempo Promedio de Visita -->
+  <section class="section">
+    <div class="container">
+      <h2>Tiempo Promedio de Visita</h2>
+      <p>Indicador del tiempo promedio que los usuarios pasan en el sitio (en minutos).</p>
+      <div id="averageTime" class="metric-display">Cargando...</div>
+    </div>
+  </section>
+
+  <!-- Sección: Scroll Depth por Sección -->
+  <section class="section valor-bg">
+    <div class="container">
+      <h2>Scroll Depth por Sección</h2>
+      <p>Gráfico de barras mostrando el porcentaje promedio de scroll alcanzado en cada sección.</p>
+      <canvas id="scrollDepthChart" width="400" height="200"></canvas>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 GProA Technology. <a href="index.html">Volver al sitio</a> | Inteligencia aplicada al negocio.</p>
+    </div>
+  </footer>
+
+  <script src="js/analytics.js"></script>
+  <script>
+    // Función para cargar y mostrar métricas
+    function loadDashboard() {
+      const metrics = window.GProAAnalytics.getMetrics();
+
+      // Gráfico de visitas por sección
+      const sectionCtx = document.getElementById('sectionViewsChart').getContext('2d');
+      new Chart(sectionCtx, {
+        type: 'bar',
+        data: {
+          labels: Object.keys(metrics.sectionViews),
+          datasets: [{
+            label: 'Visitas',
+            data: Object.values(metrics.sectionViews),
+            backgroundColor: 'rgba(0, 102, 204, 0.6)',
+            borderColor: 'rgba(0, 102, 204, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+      // Gráfico de clics
+      const clicksCtx = document.getElementById('clicksChart').getContext('2d');
+      new Chart(clicksCtx, {
+        type: 'pie',
+        data: {
+          labels: Object.keys(metrics.clickCounts),
+          datasets: [{
+            data: Object.values(metrics.clickCounts),
+            backgroundColor: [
+              'rgba(0, 102, 204, 0.6)',
+              'rgba(0, 194, 255, 0.6)',
+              'rgba(0, 0, 0, 0.6)'
+            ]
+          }]
+        }
+      });
+
+      // Tiempo promedio
+      const avgTime = metrics.averageDuration / 1000 / 60; // en minutos
+      document.getElementById('averageTime').textContent = `${avgTime.toFixed(2)} minutos`;
+
+      // Gráfico de scroll depth
+      const scrollCtx = document.getElementById('scrollDepthChart').getContext('2d');
+      // Calcular promedio de scroll depth por sección
+      const scrollData = {};
+      metrics.sessions.forEach(session => {
+        Object.keys(session.scrollDepth).forEach(section => {
+          if (!scrollData[section]) scrollData[section] = [];
+          scrollData[section].push(session.scrollDepth[section]);
+        });
+      });
+      const avgScroll = Object.keys(scrollData).map(section => {
+        const depths = scrollData[section];
+        return depths.length ? depths.reduce((a, b) => a + b, 0) / depths.length : 0;
+      });
+
+      new Chart(scrollCtx, {
+        type: 'bar',
+        data: {
+          labels: Object.keys(scrollData),
+          datasets: [{
+            label: 'Scroll Depth (%)',
+            data: avgScroll,
+            backgroundColor: 'rgba(0, 194, 255, 0.6)',
+            borderColor: 'rgba(0, 194, 255, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100
+            }
+          }
+        }
+      });
+    }
+
+    // Cargar dashboard al cargar la página
+    document.addEventListener('DOMContentLoaded', loadDashboard);
+  </script>
+</body>
+</html>

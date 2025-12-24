@@ -4,27 +4,34 @@
 
 Este proyecto es una landing page técnica-profesional para la propuesta de GProA Technology en el desarrollo de una plataforma de Inteligencia de Mercado e IA aplicada a eCommerce. La página explica de manera clara y demostrable las capacidades de la plataforma, sirviendo como demo conceptual para clientes enterprise y como base escalable hacia un MVP o producto comercial.
 
+**Nueva funcionalidad**: Incluye un sistema de analytics interno que captura métricas de uso del sitio sin depender de servicios externos como Google Analytics. El dashboard en `/analytics.html` visualiza datos en tiempo real sobre visitas, clics y engagement.
+
 ## Objetivo
 
 Evolucionar un HTML estático hacia una landing técnica-profesional que comunique efectivamente las capacidades de una plataforma de análisis de IA para eCommerce, con un diseño corporativo inspirado en IBM y estilo enterprise.
 
 ## Tecnologías Utilizadas
 
-- **HTML5**: Estructura semántica de la página.
+- **HTML5**: Estructura semántica de la página y dashboard.
 - **CSS3**: Estilos corporativos, responsive design y animaciones suaves.
-- **JavaScript (Vanilla)**: Interacciones simples como animaciones de scroll.
+- **JavaScript (Vanilla)**: Interacciones simples, animaciones de scroll y sistema de analytics.
+- **Chart.js**: Librería ligera para visualización de gráficos en el dashboard (cargada desde CDN).
 
-No se utilizan frameworks ni dependencias externas para mantener la simplicidad y compatibilidad con sitios estáticos.
+Se minimizan dependencias externas; Chart.js se usa solo en la página de analytics para mantener la simplicidad en la landing principal.
 
 ## Estructura del Proyecto
 
 ```
 /
 ├── index.html          # Página principal con todas las secciones
+├── analytics.html      # Dashboard de métricas de uso
 ├── css/
 │   └── styles.css      # Estilos corporativos y responsive
 ├── js/
-│   └── main.js         # Animaciones y interacciones
+│   ├── main.js         # Animaciones y interacciones
+│   └── analytics.js    # Sistema de tracking y métricas
+├── data/
+│   └── metrics.json    # Datos de ejemplo para métricas
 ├── assets/
 │   ├── icons/          # Iconos (placeholder)
 │   └── images/         # Imágenes (placeholder)
@@ -43,7 +50,57 @@ No se utilizan frameworks ni dependencias externas para mantener la simplicidad 
 - **Responsive**: Optimizado para desktop, tablet y mobile.
 - **Animaciones Suaves**: Hover en elementos y fade-in on scroll.
 - **Estilo Corporativo**: Colores negro, azul y blanco; inspirado en IBM.
+- **Sistema de Analytics Interno**: Tracking de uso sin dependencias externas.
+- **Dashboard Visual**: Gráficos interactivos para métricas en tiempo real.
 - **Escalable**: Código limpio y comentado, fácil de mantener y expandir.
+
+## Sistema de Analytics
+
+### Cómo Funciona Técnicamente
+
+El sistema de analytics utiliza JavaScript vanilla para capturar métricas de usuario sin enviar datos a servidores externos. Todas las métricas se almacenan localmente en el navegador del usuario usando `localStorage`.
+
+#### Métricas Capturadas
+
+1. **Sesiones**: Detecta visitas únicas usando `sessionStorage`. Cada sesión registra tiempo de inicio, fin y duración.
+2. **Secciones Vistas**: Usa `IntersectionObserver` para detectar cuándo una sección entra en el viewport (50% visible).
+3. **Scroll Depth**: Mide el porcentaje de scroll alcanzado en cada sección usando múltiples umbrales de intersección.
+4. **Clics en CTAs**: Escucha eventos de clic en elementos con atributo `data-track`.
+5. **Tiempo en Página**: Calcula la duración total de la sesión desde entrada hasta salida.
+
+#### Almacenamiento
+
+- **localStorage**: Persiste métricas agregadas entre sesiones.
+- **sessionStorage**: Identifica sesiones únicas.
+- **Estructura de Datos**: JSON con arrays de sesiones y contadores agregados.
+
+#### Dashboard
+
+La página `/analytics.html` carga métricas desde `localStorage` y las visualiza usando Chart.js:
+- **Gráfico de Barras**: Visitas por sección.
+- **Gráfico de Pastel**: Distribución de clics en CTAs.
+- **Indicador Numérico**: Tiempo promedio de visita.
+- **Gráfico de Barras**: Scroll depth promedio por sección.
+
+#### Interpretación de Gráficos
+
+- **Visitas por Sección**: Indica qué contenido es más visto. Secciones con bajas visitas pueden necesitar mejor posicionamiento.
+- **Clics en CTAs**: Muestra efectividad de llamadas a acción. Altos clics en "Descargar" indican interés en la propuesta.
+- **Tiempo Promedio**: Mayor tiempo sugiere engagement alto. Comparar con benchmarks de la industria.
+- **Scroll Depth**: Porcentajes bajos indican abandono temprano. Optimizar contenido para mantener atención.
+
+#### API Pública
+
+El objeto `window.GProAAnalytics` expone métodos para interactuar con las métricas:
+- `getMetrics()`: Obtiene datos actuales.
+- `resetMetrics()`: Resetea todas las métricas (útil para demo).
+- `exportMetrics()`: Descarga métricas como archivo JSON.
+
+#### Consideraciones de Privacidad
+
+- No se recopilan datos personales ni se envían a servidores externos.
+- Las métricas son locales al navegador del usuario.
+- Compatible con regulaciones de privacidad (no requiere cookies de terceros).
 
 ## Licencia
 

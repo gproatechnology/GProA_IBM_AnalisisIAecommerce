@@ -8,15 +8,16 @@
 </head>
 <body>
   <!-- Home / Hero -->
-  <section id="hero" class="hero">
+  <section id="hero" class="hero" data-section="hero">
     <div class="hero-content">
       <h1>De datos crudos a inteligencia accionable</h1>
       <p>Transforma información dispersa en decisiones estratégicas con IA aplicada al eCommerce</p>
+      <button data-track="cta_descargar" class="cta-button">Descargar Propuesta</button>
     </div>
   </section>
 
   <!-- Sección: Problema del mercado -->
-  <section id="problema" class="section">
+  <section id="problema" class="section" data-section="problema">
     <div class="container">
       <h2>Problema del mercado</h2>
       <div class="grid">
@@ -37,7 +38,7 @@
   </section>
 
   <!-- Sección: Solución GProA (Arquitectura Evolutiva) -->
-  <section id="solucion" class="section solucion-bg">
+  <section id="solucion" class="section solucion-bg" data-section="solucion">
     <div class="container">
       <h2>Solución GProA (Arquitectura Evolutiva)</h2>
       <div class="diagrama">
@@ -61,7 +62,7 @@
   </section>
 
   <!-- Sección: Capacidades – Fase 1 (BI) -->
-  <section id="fase1" class="section">
+  <section id="fase1" class="section" data-section="fase1">
     <div class="container">
       <h2>Capacidades – Fase 1 (BI)</h2>
       <div class="grid">
@@ -86,7 +87,7 @@
   </section>
 
   <!-- Sección: Capacidades – Fase 2 (IA) -->
-  <section id="fase2" class="section">
+  <section id="fase2" class="section" data-section="fase2">
     <div class="container">
       <h2>Capacidades – Fase 2 (IA)</h2>
       <div class="grid">
@@ -111,7 +112,7 @@
   </section>
 
   <!-- Sección: Valor para el negocio -->
-  <section id="valor" class="section valor-bg">
+  <section id="valor" class="section valor-bg" data-section="valor">
     <div class="container">
       <h2>Valor para el negocio</h2>
       <div class="grid">
@@ -132,7 +133,7 @@
   </section>
 
   <!-- Sección: Roadmap -->
-  <section id="roadmap" class="section">
+  <section id="roadmap" class="section" data-section="roadmap">
     <div class="container">
       <h2>Roadmap</h2>
       <div class="roadmap-container">
@@ -157,10 +158,11 @@
   <!-- Footer corporativo -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 GProA Technology. Inteligencia aplicada al negocio.</p>
+      <p>&copy; 2025 GProA Technology. <a href="#" data-track="cta_contacto">Contacto</a> | Inteligencia aplicada al negocio.</p>
     </div>
   </footer>
 
+  <script src="js/analytics.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
