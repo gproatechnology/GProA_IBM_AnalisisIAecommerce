@@ -1,260 +1,166 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>GProA Technology | Plataforma de Inteligencia de Mercado</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <style>
-    :root {
-      --primary: #0A0A0A;
-      --secondary: #0078D4;
-      --accent: #00C2FF;
-      --bg-light: #F5F7FA;
-      --text-main: #333333;
-      --text-muted: #666666;
-      --white: #FFFFFF;
-    }
-
-    * {
-      box-sizing: border-box;
-      font-family: "Segoe UI", Inter, Arial, sans-serif;
-    }
-
-    body {
-      margin: 0;
-      background-color: var(--bg-light);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(135deg, #0A0A0A, #111827);
-      color: var(--white);
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 18px;
-      color: var(--accent);
-      max-width: 800px;
-      margin: auto;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
-    }
-
-    h2 {
-      color: var(--primary);
-      font-size: 30px;
-      margin-bottom: 20px;
-    }
-
-    h3 {
-      color: var(--secondary);
-      margin-bottom: 10px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--white);
-      border-radius: 14px;
-      padding: 28px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-    }
-
-    .card ul {
-      padding-left: 18px;
-    }
-
-    .card li {
-      margin-bottom: 8px;
-    }
-
-    .highlight {
-      background-color: var(--primary);
-      color: var(--white);
-      padding: 50px 20px;
-      text-align: center;
-    }
-
-    .highlight h2 {
-      color: var(--white);
-    }
-
-    .highlight p {
-      color: #d1d5db;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    footer {
-      background-color: #020617;
-      color: #9ca3af;
-      text-align: center;
-      padding: 30px;
-      font-size: 14px;
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(0,120,212,0.1);
-      color: var(--secondary);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 13px;
-      margin-bottom: 12px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GProA Technology | Análisis IA eCommerce</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
-
-<header>
-  <h1>Plataforma de Inteligencia de Mercado</h1>
-  <p>
-    Arquitectura evolutiva que transforma datos crudos del mercado en
-    decisiones estratégicas y predicciones accionables.
-  </p>
-</header>
-
-<section>
-  <span class="badge">Visión</span>
-  <h2>El problema que resolvemos</h2>
-  <p>
-    Las organizaciones cuentan con grandes volúmenes de información dispersa,
-    análisis manuales y procesos reactivos. Esto genera decisiones tardías,
-    pérdida de oportunidades y poca visibilidad real del mercado.
-  </p>
-  <p>
-    GProA Technology propone una solución escalable que automatiza la captura,
-    análisis y visualización de datos para convertir información en inteligencia.
-  </p>
-</section>
-
-<section>
-  <span class="badge">Fase 1</span>
-  <h2>Arquitectura de Datos y Visualización</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Extracción Inteligente</h3>
-      <ul>
-        <li>Monitoreo automático de hasta 4 sitios web</li>
-        <li>Scraping o consumo de APIs</li>
-        <li>Ejecución periódica sin intervención humana</li>
-      </ul>
+  <!-- Home / Hero -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1>De datos crudos a inteligencia accionable</h1>
+      <p>Transforma información dispersa en decisiones estratégicas con IA aplicada al eCommerce</p>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Datos Monitoreados</h3>
-      <ul>
-        <li>Precios</li>
-        <li>Stock y disponibilidad</li>
-        <li>Variantes y promociones</li>
-        <li>Cambios relevantes del mercado</li>
-      </ul>
+  <!-- Sección: Problema del mercado -->
+  <section id="problema" class="section">
+    <div class="container">
+      <h2>Problema del mercado</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Información dispersa</h3>
+          <p>Datos fragmentados en múltiples fuentes sin integración centralizada.</p>
+        </div>
+        <div class="card">
+          <h3>Análisis manual</h3>
+          <p>Procesos repetitivos que consumen tiempo y recursos humanos.</p>
+        </div>
+        <div class="card">
+          <h3>Decisiones reactivas</h3>
+          <p>Respuestas tardías ante cambios del mercado, perdiendo oportunidades.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Visualización BI</h3>
-      <ul>
-        <li>Dashboards ejecutivos y operativos</li>
-        <li>Comparativos entre sitios y periodos</li>
-        <li>Históricos de evolución de mercado</li>
-      </ul>
+  <!-- Sección: Solución GProA (Arquitectura Evolutiva) -->
+  <section id="solucion" class="section solucion-bg">
+    <div class="container">
+      <h2>Solución GProA (Arquitectura Evolutiva)</h2>
+      <div class="diagrama">
+        <div class="diagrama-item">
+          <div class="diagrama-box">Datos</div>
+          <span class="arrow">→</span>
+        </div>
+        <div class="diagrama-item">
+          <div class="diagrama-box">BI</div>
+          <span class="arrow">→</span>
+        </div>
+        <div class="diagrama-item">
+          <div class="diagrama-box">Alertas</div>
+          <span class="arrow">→</span>
+        </div>
+        <div class="diagrama-item">
+          <div class="diagrama-box">IA</div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Motor de Alertas</h3>
-      <ul>
-        <li>Reglas de negocio configurables</li>
-        <li>Notificaciones automáticas</li>
-        <li>Reacción inmediata ante cambios críticos</li>
-      </ul>
+  <!-- Sección: Capacidades – Fase 1 (BI) -->
+  <section id="fase1" class="section">
+    <div class="container">
+      <h2>Capacidades – Fase 1 (BI)</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Scraping / APIs</h3>
+          <p>Extracción automática de datos de fuentes web y APIs.</p>
+        </div>
+        <div class="card">
+          <h3>Datos históricos</h3>
+          <p>Almacenamiento y análisis de tendencias a lo largo del tiempo.</p>
+        </div>
+        <div class="card">
+          <h3>Power BI dashboards</h3>
+          <p>Visualizaciones interactivas para insights ejecutivos.</p>
+        </div>
+        <div class="card">
+          <h3>Alertas por reglas de negocio</h3>
+          <p>Notificaciones automáticas basadas en criterios definidos.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="highlight">
-  <h2>Resultado Fase 1</h2>
-  <p>
-    El cliente obtiene visibilidad total del mercado, elimina el análisis manual
-    y toma decisiones basadas en datos reales y actualizados.
-  </p>
-</section>
-
-<section>
-  <span class="badge">Fase 2</span>
-  <h2>Inteligencia Predictiva (IA)</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Machine Learning</h3>
-      <ul>
-        <li>Modelos entrenados con datos históricos</li>
-        <li>Identificación de patrones y tendencias</li>
-        <li>Análisis de volatilidad y comportamiento</li>
-      </ul>
+  <!-- Sección: Capacidades – Fase 2 (IA) -->
+  <section id="fase2" class="section">
+    <div class="container">
+      <h2>Capacidades – Fase 2 (IA)</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Machine Learning</h3>
+          <p>Modelos predictivos entrenados con datos históricos.</p>
+        </div>
+        <div class="card">
+          <h3>Predicciones</h3>
+          <p>Anticipación de tendencias y comportamientos futuros.</p>
+        </div>
+        <div class="card">
+          <h3>Scoring de productos</h3>
+          <p>Evaluación de productos por riesgo y oportunidad.</p>
+        </div>
+        <div class="card">
+          <h3>Alertas predictivas</h3>
+          <p>Notificaciones basadas en probabilidades de IA.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Predicción y Scoring</h3>
-      <ul>
-        <li>Predicción de tendencias futuras</li>
-        <li>Detección de anomalías</li>
-        <li>Scoring de productos por riesgo u oportunidad</li>
-      </ul>
+  <!-- Sección: Valor para el negocio -->
+  <section id="valor" class="section valor-bg">
+    <div class="container">
+      <h2>Valor para el negocio</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Reacción temprana</h3>
+          <p>Identifica oportunidades y riesgos antes de la competencia.</p>
+        </div>
+        <div class="card">
+          <h3>Reducción de análisis manual</h3>
+          <p>Automatiza procesos repetitivos, liberando recursos.</p>
+        </div>
+        <div class="card">
+          <h3>Ventaja competitiva</h3>
+          <p>Gana insights únicos para decisiones estratégicas.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>IA Evolutiva</h3>
-      <ul>
-        <li>Reentrenamiento continuo</li>
-        <li>Adaptación a cambios del mercado</li>
-        <li>Alertas basadas en probabilidad</li>
-      </ul>
+  <!-- Sección: Roadmap -->
+  <section id="roadmap" class="section">
+    <div class="container">
+      <h2>Roadmap</h2>
+      <div class="roadmap-container">
+        <div class="roadmap-item">
+          <h3>Fase 1</h3>
+          <p>12–16 semanas</p>
+          <ul>
+            <li>Implementación de BI y alertas</li>
+          </ul>
+        </div>
+        <div class="roadmap-item">
+          <h3>Fase 2</h3>
+          <p>20–24 semanas</p>
+          <ul>
+            <li>Integración de IA predictiva</li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <span class="badge">Roadmap</span>
-  <h2>Tiempos de implementación</h2>
-  <ul>
-    <li><strong>Fase 1:</strong> 12 a 16 semanas</li>
-    <li><strong>Fase 2:</strong> hasta 24 semanas</li>
-  </ul>
-</section>
+  <!-- Footer corporativo -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 GProA Technology. Inteligencia aplicada al negocio.</p>
+    </div>
+  </footer>
 
-<section>
-  <span class="badge">Garantías</span>
-  <h2>Seguridad y acompañamiento</h2>
-  <ul>
-    <li>Soporte correctivo y preventivo</li>
-    <li>Ajustes ante cambios estructurales en los sitios</li>
-    <li>Confidencialidad total de la información</li>
-    <li>Propiedad intelectual definida contractualmente</li>
-  </ul>
-</section>
-
-<footer>
-  © 2025 GProA Technology · Inteligencia aplicada al negocio
-</footer>
-
+  <script src="js/main.js"></script>
 </body>
 </html>

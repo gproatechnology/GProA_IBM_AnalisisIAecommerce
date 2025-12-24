@@ -1,0 +1,272 @@
+/* Variables CSS para colores de marca */
+:root {
+  --primary-black: #000000;
+  --primary-blue: #0066CC;
+  --primary-white: #FFFFFF;
+  --bg-light: #F5F7FA;
+  --text-main: #333333;
+  --text-muted: #666666;
+  --accent: #00C2FF;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Reset y base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-main);
+  background-color: var(--primary-white);
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--primary-black), #111827);
+  color: var(--primary-white);
+  padding: 100px 20px;
+  text-align: center;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  color: var(--accent);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Secciones generales */
+.section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  color: var(--primary-black);
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Grid para cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: var(--primary-white);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 20px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px var(--shadow);
+}
+
+.card h3 {
+  color: var(--primary-blue);
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.card p {
+  color: var(--text-main);
+}
+
+/* Diagrama en Solución */
+.solucion-bg {
+  background-color: var(--bg-light);
+}
+
+.diagrama {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.diagrama-item {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.diagrama-box {
+  background: var(--primary-blue);
+  color: var(--primary-white);
+  padding: 20px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-align: center;
+  min-width: 120px;
+}
+
+.arrow {
+  font-size: 2rem;
+  color: var(--primary-blue);
+  margin: 0 20px;
+}
+
+/* Valor sección */
+.valor-bg {
+  background: linear-gradient(135deg, var(--primary-blue), #004080);
+  color: var(--primary-white);
+}
+
+.valor-bg .card {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--primary-white);
+  backdrop-filter: blur(10px);
+}
+
+.valor-bg .card h3 {
+  color: var(--primary-white);
+}
+
+/* Roadmap */
+.roadmap-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.roadmap-item {
+  background: var(--primary-white);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 20px var(--shadow);
+  text-align: center;
+  min-width: 250px;
+}
+
+.roadmap-item h3 {
+  color: var(--primary-blue);
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.roadmap-item p {
+  font-weight: 600;
+  color: var(--primary-black);
+  margin-bottom: 15px;
+}
+
+.roadmap-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.roadmap-item li {
+  margin-bottom: 5px;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.footer {
+  background: var(--primary-black);
+  color: var(--text-muted);
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Animaciones fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 60px 20px;
+  }
+
+  .section h2 {
+    font-size: 2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .diagrama {
+    flex-direction: column;
+  }
+
+  .diagrama-item {
+    margin: 5px 0;
+  }
+
+  .arrow {
+    margin: 10px 0;
+  }
+
+  .roadmap-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .diagrama-box {
+    padding: 15px 20px;
+    font-size: 1rem;
+  }
+}
