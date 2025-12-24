@@ -62,11 +62,11 @@ El sistema de analytics utiliza JavaScript vanilla para capturar métricas de us
 
 #### Métricas Capturadas
 
-1. **Sesiones**: Detecta visitas únicas usando `sessionStorage`. Cada sesión registra tiempo de inicio, fin y duración.
-2. **Secciones Vistas**: Usa `IntersectionObserver` para detectar cuándo una sección entra en el viewport (50% visible).
-3. **Scroll Depth**: Mide el porcentaje de scroll alcanzado en cada sección usando múltiples umbrales de intersección.
-4. **Clics en CTAs**: Escucha eventos de clic en elementos con atributo `data-track`.
-5. **Tiempo en Página**: Calcula la duración total de la sesión desde entrada hasta salida.
+1. **Sesiones**: Detecta visitas únicas usando `sessionStorage`. Cada sesión registra tiempo de inicio, fin y duración. KPI: Número total de sesiones únicas.
+2. **Secciones Vistas**: Usa `IntersectionObserver` para detectar cuándo una sección entra en el viewport (50% visible). KPI: Conteo de vistas por sección, indica engagement por contenido.
+3. **Scroll Depth**: Mide el porcentaje de scroll alcanzado en cada sección usando múltiples umbrales de intersección. KPI: Promedio de scroll depth por sección, mide profundidad de lectura.
+4. **Clics en CTAs**: Escucha eventos de clic en elementos con atributo `data-cta`. KPI: Número de clics por tipo de CTA, evalúa efectividad de llamadas a acción.
+5. **Tiempo en Página**: Calcula la duración total de la sesión desde entrada hasta salida. KPI: Tiempo promedio de visita, indica nivel de interés.
 
 #### Almacenamiento
 
@@ -77,6 +77,7 @@ El sistema de analytics utiliza JavaScript vanilla para capturar métricas de us
 #### Dashboard
 
 La página `/analytics.html` carga métricas desde `localStorage` y las visualiza usando Chart.js:
+- **Indicador Numérico**: Total de sesiones.
 - **Gráfico de Barras**: Visitas por sección.
 - **Gráfico de Pastel**: Distribución de clics en CTAs.
 - **Indicador Numérico**: Tiempo promedio de visita.
@@ -84,6 +85,7 @@ La página `/analytics.html` carga métricas desde `localStorage` y las visualiz
 
 #### Interpretación de Gráficos
 
+- **Sesiones Totales**: Número absoluto de visitas únicas al sitio. Útil para medir alcance general.
 - **Visitas por Sección**: Indica qué contenido es más visto. Secciones con bajas visitas pueden necesitar mejor posicionamiento.
 - **Clics en CTAs**: Muestra efectividad de llamadas a acción. Altos clics en "Descargar" indican interés en la propuesta.
 - **Tiempo Promedio**: Mayor tiempo sugiere engagement alto. Comparar con benchmarks de la industria.
@@ -101,6 +103,29 @@ El objeto `window.GProAAnalytics` expone métodos para interactuar con las métr
 - No se recopilan datos personales ni se envían a servidores externos.
 - Las métricas son locales al navegador del usuario.
 - Compatible con regulaciones de privacidad (no requiere cookies de terceros).
+
+## Extensión a Backend Real
+
+Para integrar este sistema de analytics con un backend real (ej. Node.js, Python Flask, etc.):
+
+1. **Modificar `saveMetrics()`**: Enviar datos a un endpoint REST en lugar de localStorage.
+   ```javascript
+   function saveMetrics(metrics) {
+     fetch('/api/analytics', {
+       method: 'POST',
+       headers: { 'Content-Type': 'application/json' },
+       body: JSON.stringify(metrics)
+     });
+   }
+   ```
+
+2. **Agregar User ID**: Integrar con sistema de autenticación para trackear usuarios específicos.
+3. **Base de Datos**: Usar MongoDB o PostgreSQL para almacenar métricas históricas.
+4. **Dashboard Backend**: Crear panel administrativo con filtros por fecha, usuario, etc.
+5. **Exportación Avanzada**: Generar reportes PDF/Excel con tendencias y comparativas.
+6. **Alertas**: Configurar notificaciones cuando KPIs caen por debajo de umbrales.
+
+El código frontend permanece igual, solo se modifica el almacenamiento.
 
 ## Licencia
 

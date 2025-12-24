@@ -115,7 +115,7 @@
 
   // Tracking de secciones vistas con IntersectionObserver
   function initSectionTracking() {
-    const sections = document.querySelectorAll('[data-section]');
+    const sections = document.querySelectorAll('[data-track]');
     const metrics = getMetrics();
     const sessionId = sessionStorage.getItem(SESSION_KEY);
     const session = metrics.sessions.find(s => s.id === sessionId);
@@ -125,7 +125,7 @@
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const sectionName = entry.target.getAttribute('data-section');
+          const sectionName = entry.target.getAttribute('data-track');
           if (sectionName && !session.sectionsViewed.includes(sectionName)) {
             session.sectionsViewed.push(sectionName);
             metrics.sectionViews[sectionName]++;
@@ -140,7 +140,7 @@
 
   // Tracking de scroll depth por sección
   function initScrollDepthTracking() {
-    const sections = document.querySelectorAll('[data-section]');
+    const sections = document.querySelectorAll('[data-track]');
     const metrics = getMetrics();
     const sessionId = sessionStorage.getItem(SESSION_KEY);
     const session = metrics.sessions.find(s => s.id === sessionId);
@@ -149,7 +149,7 @@
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        const sectionName = entry.target.getAttribute('data-section');
+        const sectionName = entry.target.getAttribute('data-track');
         if (sectionName) {
           const ratio = Math.round(entry.intersectionRatio * 100);
           if (ratio > session.scrollDepth[sectionName]) {
@@ -168,9 +168,9 @@
   // Tracking de clics en elementos marcados
   function initClickTracking() {
     document.addEventListener('click', (e) => {
-      const trackElement = e.target.closest('[data-track]');
+      const trackElement = e.target.closest('[data-cta]');
       if (trackElement) {
-        const trackType = trackElement.getAttribute('data-track');
+        const trackType = trackElement.getAttribute('data-cta');
         const metrics = getMetrics();
         const sessionId = sessionStorage.getItem(SESSION_KEY);
         const session = metrics.sessions.find(s => s.id === sessionId);

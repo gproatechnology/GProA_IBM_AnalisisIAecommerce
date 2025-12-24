@@ -18,6 +18,15 @@
     </div>
   </header>
 
+  <!-- Sección: Sesiones Totales -->
+  <section class="section">
+    <div class="container">
+      <h2>Sesiones Totales</h2>
+      <p>Número total de sesiones únicas registradas en el sitio.</p>
+      <div id="totalSessions" class="metric-display">Cargando...</div>
+    </div>
+  </section>
+
   <!-- Sección: Visitas por Sección -->
   <section class="section">
     <div class="container">
@@ -106,6 +115,9 @@
           }]
         }
       });
+
+      // Sesiones totales
+      document.getElementById('totalSessions').textContent = metrics.totalSessions;
 
       // Tiempo promedio
       const avgTime = metrics.averageDuration / 1000 / 60; // en minutos

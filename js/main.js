@@ -1,3 +1,11 @@
+// Inicialización del sistema de analytics
+// Se asegura que analytics.js esté cargado antes de inicializar
+if (typeof window.GProAAnalytics !== 'undefined') {
+  console.log('Analytics ya inicializado');
+} else {
+  console.warn('Analytics no encontrado, verificar carga de analytics.js');
+}
+
 // Animaciones suaves: fade-in on scroll
 document.addEventListener('DOMContentLoaded', function() {
   const sections = document.querySelectorAll('.section');
