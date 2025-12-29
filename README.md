@@ -4,7 +4,7 @@
 
 Este proyecto es una landing page técnica-profesional para la propuesta de GProA Technology en el desarrollo de una plataforma de Inteligencia de Mercado e IA aplicada a eCommerce. La página explica de manera clara y demostrable las capacidades de la plataforma, sirviendo como demo conceptual para clientes enterprise y como base escalable hacia un MVP o producto comercial.
 
-**Nueva funcionalidad**: Incluye un sistema de analytics interno que captura métricas de uso del sitio sin depender de servicios externos como Google Analytics. El dashboard en `/analytics.html` visualiza datos en tiempo real sobre visitas, clics y engagement.
+**Nueva funcionalidad**: Incluye un sistema de analytics interno que captura métricas de uso del sitio sin depender de servicios externos como Google Analytics. Las métricas se visualizan en tiempo real en la sección de métricas de la landing page.
 
 ## Objetivo
 
@@ -12,16 +12,14 @@ Evolucionar un HTML estático hacia una landing técnica-profesional que comuniq
 
 ## Tecnologías Utilizadas
 
-- **HTML5**: Estructura semántica de la página y dashboard.
+- **HTML5**: Estructura semántica de la página.
 - **CSS3**: Estilos corporativos, responsive design y animaciones suaves.
-- **JavaScript (Vanilla)**: Interacciones simples, animaciones de scroll y sistema de analytics.
-- **Chart.js**: Librería ligera para visualización de gráficos en el dashboard (cargada desde CDN).
-
-- **Vite**: Herramienta de construcción y desarrollo rápido.
-
+- **JavaScript (ES6+)**: Interacciones, animaciones de scroll y sistema de analytics.
+- **Chart.js**: Librería ligera para visualización de gráficos (cargada desde CDN).
+- **Vite**: Herramienta de construcción y desarrollo rápido con estructura modular.
 - **TensorFlow.js**: Librería para machine learning en el navegador.
 
-Se minimizan dependencias externas; Chart.js se usa solo en la página de analytics para mantener la simplicidad en la landing principal.
+Se minimizan dependencias externas; el proyecto usa una arquitectura modular escalable.
 
 ## Desarrollo Local
 
@@ -51,22 +49,21 @@ Esto genera los archivos en `dist/` listos para despliegue.
 ```
 /
 ├── index.html              # Página principal con todas las secciones
-├── analytics.html          # Dashboard de métricas de uso
 ├── public/
 │   └── data/
 │       ├── ecommerce-data.json  # Datos de ejemplo para análisis IA
 │       └── metrics.json         # Datos de ejemplo para métricas
-├── css/
-│   └── styles.css          # Estilos corporativos y responsive
-├── js/
-│   ├── main.js             # Animaciones y interacciones
-│   ├── analytics.js        # Sistema de tracking y métricas
-│   └── ai-analysis.js      # Análisis IA con TensorFlow.js
-├── src/                    # Directorio para desarrollo modular (actualmente vacío)
-│   ├── assets/
-│   ├── components/
+├── src/                    # Código fuente modular
+│   ├── styles.css          # Estilos corporativos y responsive
+│   ├── main.js             # Punto de entrada principal
 │   ├── services/
-│   └── utils/
+│   │   └── ai-analysis.js  # Análisis IA con TensorFlow.js
+│   ├── components/         # Componentes reutilizables (futuro)
+│   ├── assets/             # Recursos estáticos (futuro)
+│   └── utils/              # Utilidades (futuro)
+├── css/                    # Estilos legacy (a migrar)
+├── js/                     # Scripts legacy (a migrar)
+├── COMANDOS.md             # Guía de comandos del proyecto
 ├── package.json            # Configuración de dependencias y scripts
 └── README.md               # Este archivo
 ```
@@ -112,7 +109,7 @@ El sistema de analytics utiliza JavaScript vanilla para capturar métricas de us
 
 #### Dashboard
 
-La página `/analytics.html` carga métricas desde `localStorage` y las visualiza usando Chart.js:
+La sección de métricas en la landing page carga métricas desde `localStorage` y las visualiza usando Chart.js:
 - **Indicador Numérico**: Total de sesiones.
 - **Gráfico de Barras**: Visitas por sección.
 - **Gráfico de Pastel**: Distribución de clics en CTAs.

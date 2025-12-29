@@ -30,8 +30,9 @@ Para generar los archivos optimizados para despliegue:
 npm run build
 ```
 
-- Los archivos se generan en la carpeta `dist/`.
+- Los archivos se generan en la carpeta `dist/` (usando Vite).
 - Esta carpeta contiene todo lo necesario para el despliegue web.
+- El proyecto usa una estructura modular en `src/` que se compila automáticamente.
 
 ## 4. Probar las Demos Antes de Commit
 Antes de hacer commit, verifica que todo funcione:
@@ -42,14 +43,13 @@ npm install
 
 # 2. Ejecutar en desarrollo
 npm run dev
-# Abrir http://localhost:5173 para ver la landing page
-# Abrir http://localhost:5173/analytics.html para ver el dashboard
+# Abrir http://localhost:5173 para ver la landing page completa
 
 # 3. Probar funcionalidades:
 # - Navegar por secciones
 # - Ver animaciones de scroll
 # - Probar botones CTA
-# - En analytics.html: Ver gráficos, resetear métricas
+# - Ver métricas en tiempo real en la sección de métricas
 
 # 4. Construir y probar build
 npm run build
@@ -82,7 +82,7 @@ Después de hacer push:
 1. Ve al repositorio en GitHub.
 2. Ve a Settings > Pages.
 3. Selecciona la rama `main` como source.
-4. Elige la carpeta `/dist` como directorio.
+4. Elige la carpeta `/ (root)` como directorio (el proyecto usa Vite con index.html en root).
 5. Guarda los cambios.
 6. El sitio estará disponible en: `https://gproatechnology.github.io/GProA_IBM_AnalisisIAecommerce/`
 
@@ -114,5 +114,5 @@ git remote -v
 
 ## Notas Importantes
 - Siempre ejecuta `npm run build` antes de desplegar para asegurar que los archivos estén optimizados.
-- Las métricas de analytics se almacenan localmente en el navegador; para demo, usa el botón "Resetear Métricas" en analytics.html.
+- Las métricas de analytics se almacenan localmente en el navegador; se visualizan en la sección de métricas de la landing page.
 - El proyecto usa TensorFlow.js para análisis IA; requiere conexión a internet para cargar las librerías.
