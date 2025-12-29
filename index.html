@@ -1,4 +1,8 @@
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 258f4c3 (Descripción de los cambios realizados)
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -1162,7 +1166,11 @@
           <div class="step-circle">
             <i class="fas fa-chart-bar"></i>
           </div>
+<<<<<<< HEAD
           <div class="step-label">Business Intelligence</div>
+=======
+          <div class="step-label">Control y Visibilidad (BI)</div>
+>>>>>>> 258f4c3 (Descripción de los cambios realizados)
         </div>
         
         <div class="step-connector"></div>
@@ -1180,7 +1188,11 @@
           <div class="step-circle">
             <i class="fas fa-brain"></i>
           </div>
+<<<<<<< HEAD
           <div class="step-label">Inteligencia Artificial</div>
+=======
+          <div class="step-label">Anticipación mediante IA</div>
+>>>>>>> 258f4c3 (Descripción de los cambios realizados)
         </div>
       </div>
       
@@ -1635,6 +1647,42 @@
         });
       });
 
+<<<<<<< HEAD
+=======
+      // Cargar KPIs desde metrics.json
+      fetch('public/data/metrics.json')
+        .then(response => response.json())
+        .then(data => {
+          const container = document.getElementById('kpiContainer');
+          container.innerHTML = `
+            <div class="metric-card fade-in">
+              <div class="metric-icon">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+              <div class="metric-value">${data.totalRevenue.toLocaleString()}</div>
+              <div class="metric-label">Ingresos Totales</div>
+            </div>
+            
+            <div class="metric-card fade-in">
+              <div class="metric-icon">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <div class="metric-value">${data.totalOrders}</div>
+              <div class="metric-label">Total de Órdenes</div>
+            </div>
+            
+            <div class="metric-card fade-in">
+              <div class="metric-icon">
+                <i class="fas fa-calculator"></i>
+              </div>
+              <div class="metric-value">${data.averageOrderValue.toFixed(2)}</div>
+              <div class="metric-label">Valor Promedio de Orden</div>
+            </div>
+          `;
+        })
+        .catch(error => console.error('Error cargando KPIs:', error));
+
+>>>>>>> 258f4c3 (Descripción de los cambios realizados)
       // Smooth scroll para enlaces internos
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {

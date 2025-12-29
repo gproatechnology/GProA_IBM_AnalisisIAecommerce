@@ -17,29 +17,65 @@ Evolucionar un HTML estático hacia una landing técnica-profesional que comuniq
 - **JavaScript (Vanilla)**: Interacciones simples, animaciones de scroll y sistema de analytics.
 - **Chart.js**: Librería ligera para visualización de gráficos en el dashboard (cargada desde CDN).
 
+- **Vite**: Herramienta de construcción y desarrollo rápido.
+
+- **TensorFlow.js**: Librería para machine learning en el navegador.
+
 Se minimizan dependencias externas; Chart.js se usa solo en la página de analytics para mantener la simplicidad en la landing principal.
+
+## Desarrollo Local
+
+Para ejecutar el proyecto localmente:
+
+1. Instala dependencias:
+   ```bash
+   npm install
+   ```
+
+2. Ejecuta el servidor de desarrollo:
+   ```bash
+   npm run dev
+   ```
+
+3. Abre `http://localhost:5173` en tu navegador.
+
+Para construir para producción:
+```bash
+npm run build
+```
+
+Esto genera los archivos en `dist/` listos para despliegue.
 
 ## Estructura del Proyecto
 
 ```
 /
-├── index.html          # Página principal con todas las secciones
-├── analytics.html      # Dashboard de métricas de uso
+├── index.html              # Página principal con todas las secciones
+├── analytics.html          # Dashboard de métricas de uso
+├── public/
+│   └── data/
+│       ├── ecommerce-data.json  # Datos de ejemplo para análisis IA
+│       └── metrics.json         # Datos de ejemplo para métricas
 ├── css/
-│   └── styles.css      # Estilos corporativos y responsive
+│   └── styles.css          # Estilos corporativos y responsive
 ├── js/
-│   ├── main.js         # Animaciones y interacciones
-│   └── analytics.js    # Sistema de tracking y métricas
-├── data/
-│   └── metrics.json    # Datos de ejemplo para métricas
-├── assets/
-│   ├── icons/          # Iconos (placeholder)
-│   └── images/         # Imágenes (placeholder)
-└── README.md           # Este archivo
+│   ├── main.js             # Animaciones y interacciones
+│   ├── analytics.js        # Sistema de tracking y métricas
+│   └── ai-analysis.js      # Análisis IA con TensorFlow.js
+├── src/                    # Directorio para desarrollo modular (actualmente vacío)
+│   ├── assets/
+│   ├── components/
+│   ├── services/
+│   └── utils/
+├── package.json            # Configuración de dependencias y scripts
+└── README.md               # Este archivo
 ```
 
 ## Cómo Desplegar en GitHub Pages
 
+Este proyecto está disponible en: https://github.com/gproatechnology/GProA_IBM_AnalisisIAecommerce
+
+Para desplegar:
 1. Sube este repositorio a GitHub.
 2. Ve a la configuración del repositorio (Settings).
 3. En la sección "Pages", selecciona la rama `main` (o `master`) como fuente.
