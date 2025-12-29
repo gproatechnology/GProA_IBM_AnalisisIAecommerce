@@ -1,0 +1,31 @@
+{
+  "name": "gproa_ibm_analisisiaecommerce",
+  "version": "1.0.0",
+  "description": "Este proyecto es una landing page técnica-profesional para la propuesta de GProA Technology en el desarrollo de una plataforma de Inteligencia de Mercado e IA aplicada a eCommerce. La página explica de manera clara y demostrable las capacidades de la plataforma, sirviendo como demo conceptual para clientes enterprise y como base escalable hacia un MVP o producto comercial.",
+  "main": "dist/index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gproatechnology/GProA_IBM_AnalisisIAecommerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/gproatechnology/GProA_IBM_AnalisisIAecommerce/issues"
+  },
+  "homepage": "https://github.com/gproatechnology/GProA_IBM_AnalisisIAecommerce#readme",
+  "devDependencies": {
+    "vite": "^7.3.0"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.22.0",
+    "chart.js": "^4.5.1"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "sessions": [
+    {
+      "id": "session_001",
+      "startTime": "2025-12-24T19:00:00.000Z",
+      "endTime": "2025-12-24T19:05:00.000Z",
+      "duration": 300000,
+      "sectionsViewed": ["hero", "problema", "solucion"],
+      "scrollDepth": {
+        "hero": 100,
+        "problema": 80,
+        "solucion": 60,
+        "fase1": 0,
+        "fase2": 0,
+        "valor": 0,
+        "roadmap": 0
+      },
+      "clicks": [
+        {"element": "cta_contacto", "timestamp": "2025-12-24T19:02:00.000Z"}
+      ]
+    }
+  ],
+  "totalSessions": 1,
+  "totalClicks": 1,
+  "averageDuration": 300000,
+  "sectionViews": {
+    "hero": 1,
+    "problema": 1,
+    "solucion": 1,
+    "fase1": 0,
+    "fase2": 0,
+    "valor": 0,
+    "roadmap": 0
+  },
+  "clickCounts": {
+    "cta_contacto": 1,
+    "cta_descargar": 0,
+    "cta_demo": 0
+  }
+}
